@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<!--
+=====================================================================
+ AUVIQUE — EDITING GUIDE (delete this comment before publishing)
+=====================================================================
+ EDIT TEXT: every section is labelled "SECTION n" below. Change the words between tags.
+ EDIT MONTHLY PRICES: near the bottom, find  const MONTHLY = {...}  and replace "£XX"
+   for each tier. Page updates automatically. Setup fees (£250/£375/£500) are in the PRICING section.
+ TESTIMONIALS: SECTION 6 — replace the "PLACEHOLDER" text, names and roles.
+ PHOTOS/LOGO: add <img src="yourfile.jpg" alt="..."> where you want it (e.g. inside the nav logo link).
+ EMAIL: search for Auviquestudios@proton.me (also set EMAIL in the script).
+ FORM: by default, submitting opens the visitor's email app with their details pre-filled to you.
+   For automatic delivery to your inbox, make a free Formspree.io form and paste its URL into FORM_ENDPOINT.
+ COLOURS: accent is #4cc9f0 / #6a8dff (search for those); background is #070b14.
+
+ PRE-PUBLISH CHECKLIST
+ [ ] Monthly prices set (or "£XX" removed)    [ ] Testimonials replaced or section removed
+ [ ] FORM_ENDPOINT set and test submission received    [ ] Email links open correctly
+ [ ] Chatbot answers (CHAT_ANSWERS) match your real offer/timelines    [ ] Tested on phone + desktop
+ [ ] Claims ("within 24 hours", "no hidden fees") are things you can honour
+ [ ] Add privacy policy / terms links if collecting data (UK GDPR)    [ ] Page title + description edited
+=====================================================================
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AUVIQUE — Your Business, Elevated.</title>
+<meta name="description" content="Custom AI agents that handle your emails, bookings and admin. Free instant quote, no obligation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>tailwind.config={theme:{extend:{fontFamily:{sans:['Inter','system-ui','sans-serif']},colors:{ink:'#070b14',panel:'#0e1526',line:'#1c2740',accent:'#4cc9f0'}}}}</script>
+<style>
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:#070b14;color:#aab4c8;font-family:Inter,system-ui,sans-serif;line-height:1.7}
+.grad{background:linear-gradient(135deg,#4cc9f0,#6a8dff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.btn{display:inline-block;font-weight:700;text-transform:uppercase;letter-spacing:.05em;font-size:.78rem;padding:.95rem 1.7rem;border-radius:999px;transition:transform .25s,box-shadow .25s,border-color .25s;text-align:center}
+.btn-p{background:linear-gradient(135deg,#4cc9f0,#6a8dff);color:#051020}
+.btn-p:hover{transform:translateY(-3px);box-shadow:0 12px 32px -8px #4cc9f0bb}
+.btn-o{border:1px solid #2a3a5e;color:#fff}
+.btn-o:hover{transform:translateY(-3px);border-color:#4cc9f0;box-shadow:0 0 26px -6px #4cc9f066}
+.card{background:#0e1526;border:1px solid #1c2740;border-radius:1.25rem;transition:transform .3s,border-color .3s,box-shadow .3s}
+.card:hover{transform:translateY(-6px);border-color:#2f4570;box-shadow:0 24px 40px -24px #000}
+.pop{background:#14203b;border-color:#4cc9f0;box-shadow:0 0 70px -14px #4cc9f0aa}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+#nav.solid{background:#070b14ee;backdrop-filter:blur(12px);border-bottom:1px solid #1c2740}
+.field{width:100%;background:#0b1224;border:1px solid #243357;border-radius:.75rem;padding:.85rem 1rem;color:#fff}
+.field:focus{outline:none;border-color:#4cc9f0;box-shadow:0 0 0 3px #4cc9f033}
+.field option{background:#0b1224}
+a:focus-visible,button:focus-visible{outline:2px solid #4cc9f0;outline-offset:3px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+
+<!-- SECTION 1: NAVIGATION -->
+<header id="nav" class="fixed inset-x-0 top-0 z-50 transition-all duration-300">
+  <div class="max-w-6xl mx-auto flex items-center justify-between px-5 h-16">
+    <a href="#top" class="text-xl font-extrabold tracking-[.22em] text-white">AUVIQUE</a>
+    <nav class="hidden md:flex gap-8 text-sm font-medium text-slate-300">
+      <a href="#services" class="hover:text-white">Services</a><a href="#pricing" class="hover:text-white">Pricing</a>
+      <a href="#how" class="hover:text-white">How It Works</a><a href="#about" class="hover:text-white">About</a>
+      <a href="#quote" class="hover:text-white">Contact</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <a href="#quote" class="btn btn-p !py-2.5 !px-4 sm:!px-5">Get Free Quote</a>
+      <button id="menuBtn" class="md:hidden text-white text-2xl leading-none" aria-label="Open menu">☰</button>
+    </div>
+  </div>
+  <nav id="mobileMenu" class="hidden md:hidden bg-ink/95 px-5 pb-4 text-slate-200 font-medium">
+    <a class="block py-2" href="#services">Services</a><a class="block py-2" href="#pricing">Pricing</a>
+    <a class="block py-2" href="#how">How It Works</a><a class="block py-2" href="#about">About</a><a class="block py-2" href="#quote">Contact</a>
+  </nav>
+</header>
+
+<!-- SECTION 2: HERO -->
+<section id="top" class="relative min-h-screen flex items-center overflow-hidden" style="background:radial-gradient(ellipse at 75% 30%,#13265a 0%,#0a1020 45%,#070b14 75%)">
+  <canvas id="hero3d" class="absolute inset-0 w-full h-full pointer-events-none"></canvas>
+  <div class="relative max-w-6xl mx-auto px-5 pt-28 pb-20 w-full">
+    <h1 class="text-4xl sm:text-5xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.05] max-w-3xl">Stop drowning in admin. Let AI run the boring stuff — <span class="grad">while you grow.</span></h1>
+    <p class="mt-6 text-lg sm:text-xl max-w-xl text-slate-300">Custom AI agents that handle emails, bookings, and workflows — built exclusively for your business.</p>
+    <div class="mt-9 flex flex-wrap gap-4">
+      <a href="#quote" class="btn btn-p">Get Your Free Quote</a>
+      <a href="#pricing" class="btn btn-o">See Pricing</a>
+    </div>
+    <p class="mt-6 text-sm text-slate-400">⚡ Free custom quote • No obligation • Response within 24 hours</p>
+  </div>
+</section>
+
+<!-- SECTION 3: WHAT WE DO -->
+<section id="services" class="py-24 px-5">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight max-w-2xl reveal">Everything Your Business Needs — Automated.</h2>
+    <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
+      <div class="card p-7"><div class="text-3xl">📧</div><h3 class="mt-4 text-lg font-bold text-white">Smart Email Management</h3><p class="mt-2 text-sm">Instant replies, sorting, and follow-ups that sound like YOU.</p></div>
+      <div class="card p-7"><div class="text-3xl">📅</div><h3 class="mt-4 text-lg font-bold text-white">Intelligent Booking</h3><p class="mt-2 text-sm">Appointments, confirmations, and rescheduling — fully hands-off.</p></div>
+      <div class="card p-7"><div class="text-3xl">🤖</div><h3 class="mt-4 text-lg font-bold text-white">Custom AI Agents</h3><p class="mt-2 text-sm">Built for YOUR workflows, not one-size-fits-all.</p></div>
+      <div class="card p-7"><div class="text-3xl">🔗</div><h3 class="mt-4 text-lg font-bold text-white">Seamless Integration</h3><p class="mt-2 text-sm">Works with the tools you already use.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4: HOW IT WORKS -->
+<section id="how" class="py-24 px-5 bg-[#0a1020]">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight max-w-2xl reveal">From Setup to Running — In 3 Simple Steps</h2>
+    <div class="relative mt-14 grid md:grid-cols-3 gap-10 reveal">
+      <div class="hidden md:block absolute top-7 left-[16%] right-[16%] h-px bg-gradient-to-r from-transparent via-accent/70 to-transparent"></div>
+      <div class="relative text-center"><div class="mx-auto w-14 h-14 rounded-full bg-ink border border-accent text-accent font-extrabold flex items-center justify-center">1</div><h3 class="mt-5 text-lg font-bold text-white">Tell us your pain points</h3><p class="mt-2 text-sm">Free discovery call &amp; custom plan.</p></div>
+      <div class="relative text-center"><div class="mx-auto w-14 h-14 rounded-full bg-ink border border-accent text-accent font-extrabold flex items-center justify-center">2</div><h3 class="mt-5 text-lg font-bold text-white">We build your AI agent</h3><p class="mt-2 text-sm">Fully customised to your business.</p></div>
+      <div class="relative text-center"><div class="mx-auto w-14 h-14 rounded-full bg-ink border border-accent text-accent font-extrabold flex items-center justify-center">3</div><h3 class="mt-5 text-lg font-bold text-white">Launch &amp; watch it work</h3><p class="mt-2 text-sm">Ongoing support included.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5: PRICING (edit setup fees here; monthly prices are set in the script: MONTHLY) -->
+<section id="pricing" class="py-24 px-5">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center max-w-2xl mx-auto reveal">
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Simple, Transparent Investment</h2>
+      <p class="mt-4">One-time setup fee + monthly ongoing support &amp; optimisation. Every business is unique — a custom quote means you only pay for what you need.</p>
+    </div>
+    <div class="mt-16 grid md:grid-cols-3 gap-6 items-center reveal">
+      <!-- STARTER -->
+      <div class="card p-8">
+        <h3 class="text-xl font-bold text-white">Essentials</h3><p class="text-xs mt-1">Starter</p>
+        <div class="mt-6 text-5xl font-extrabold text-white">£250<span class="text-sm font-medium text-slate-400"> setup</span></div>
+        <p class="mt-1 text-sm">+ Custom from <span data-m="starter">£XX</span>/mo</p>
+        <ul class="mt-6 space-y-2 text-sm"><li>✅ Email management OR bookings</li><li>✅ 1 AI workflow</li><li>✅ Email support</li></ul>
+        <p class="mt-6 text-sm text-slate-400">Best for: Solopreneurs &amp; small startups</p>
+        <a href="#quote" class="btn btn-o w-full mt-6">Get Free Quote</a>
+      </div>
+      <!-- GROWTH (highlighted) -->
+      <div class="card pop p-8 relative md:-translate-y-4 md:py-12">
+        <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-accent to-[#6a8dff] text-ink text-xs font-extrabold uppercase tracking-wider px-4 py-1.5 rounded-full whitespace-nowrap">🏆 Most Popular Choice</span>
+        <h3 class="text-xl font-bold text-white">Growth</h3><p class="text-xs mt-1">⭐ Best value</p>
+        <div class="mt-6 text-6xl font-extrabold text-white">£375<span class="text-sm font-medium text-slate-400"> setup</span></div>
+        <p class="mt-1 text-sm">+ Custom from <span data-m="growth">£XX</span>/mo</p>
+        <ul class="mt-6 space-y-2 text-sm text-slate-200"><li>✅ Emails + Bookings + Basic integrations</li><li>✅ 2 AI agents working together</li><li>✅ Priority support</li><li>✅ Monthly optimisation check-in</li><li>✅ Setup included — fully done-for-you</li></ul>
+        <p class="mt-6 text-sm text-slate-400">Best for: Growing businesses ready to scale</p>
+        <a href="#quote" class="btn btn-p w-full mt-6">Get Free Quote</a>
+      </div>
+      <!-- ENTERPRISE -->
+      <div class="card p-8">
+        <h3 class="text-xl font-bold text-white">Enterprise</h3><p class="text-xs mt-1">Premium</p>
+        <div class="mt-6 text-5xl font-extrabold text-white">£500<span class="text-sm font-medium text-slate-400"> setup</span></div>
+        <p class="mt-1 text-sm">+ Custom from <span data-m="enterprise">£XX</span>/mo</p>
+        <ul class="mt-6 space-y-2 text-sm"><li>✅ Unlimited emails, bookings, custom workflows</li><li>✅ Multiple AI agents + full system integration</li><li>✅ Dedicated support &amp; weekly check-ins</li><li>✅ Custom onboarding session</li><li>✅ 24/7 priority access</li></ul>
+        <p class="mt-6 text-sm text-slate-400">Best for: Established businesses that want full freedom</p>
+        <a href="#quote" class="btn btn-o w-full mt-6">Get Free Quote</a>
+      </div>
+    </div>
+    <div class="mt-14 text-center reveal">
+      <a href="#quote" class="btn btn-p">See Your Exact Monthly Price → Get Your Free Quote</a>
+      <p class="mt-5 text-sm text-slate-400">All packages include full setup, training, and ongoing support. No hidden fees, ever.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6: SOCIAL PROOF (replace PLACEHOLDER text with real testimonials) -->
+<section id="about" class="py-24 px-5 bg-[#0a1020]">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight reveal">Businesses Already Running Smarter</h2>
+    <div class="mt-12 grid md:grid-cols-3 gap-6 reveal">
+      <figure class="card p-7"><div class="text-4xl grad font-extrabold leading-none">“</div><blockquote class="mt-2 text-sm text-slate-200">PLACEHOLDER — Add a short customer quote about the time or stress they saved.</blockquote><figcaption class="mt-5 text-sm"><b class="text-white">Client Name</b><br>Role, Business</figcaption></figure>
+      <figure class="card p-7"><div class="text-4xl grad font-extrabold leading-none">“</div><blockquote class="mt-2 text-sm text-slate-200">PLACEHOLDER — Add a short customer quote about how easy the setup was.</blockquote><figcaption class="mt-5 text-sm"><b class="text-white">Client Name</b><br>Role, Business</figcaption></figure>
+      <figure class="card p-7"><div class="text-4xl grad font-extrabold leading-none">“</div><blockquote class="mt-2 text-sm text-slate-200">PLACEHOLDER — Add a short customer quote about results or support.</blockquote><figcaption class="mt-5 text-sm"><b class="text-white">Client Name</b><br>Role, Business</figcaption></figure>
+    </div>
+    <h3 class="mt-20 text-2xl font-bold text-white reveal">Why Auvique?</h3>
+    <div class="mt-6 grid sm:grid-cols-3 gap-4 text-white font-semibold reveal">
+      <div class="card p-5">✅ Built for YOUR business</div><div class="card p-5">✅ Done-with-you setup</div><div class="card p-5">✅ Scale as you grow</div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 7: FREE QUOTE CTA + FORM -->
+<section id="quote" class="py-24 px-5 bg-[#03060d] border-y border-accent/30" style="background-image:radial-gradient(ellipse at 50% 0%,#10224d 0%,transparent 60%)">
+  <div class="max-w-2xl mx-auto text-center">
+    <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Ready to see exactly what it would cost for YOUR business?</h2>
+    <p class="mt-4">Get your fully custom, no-obligation quote. Tell us what you need — we’ll send you a clear price breakdown within 24 hours.</p>
+    <form id="quoteForm" class="mt-10 text-left grid gap-4">
+      <input class="field" name="name" placeholder="Your name" required aria-label="Your name" autocomplete="name">
+      <input class="field" name="business" placeholder="Business name" required aria-label="Business name" autocomplete="organization">
+      <input class="field" type="email" name="email" placeholder="Email address" required aria-label="Email address" autocomplete="email">
+      <select class="field" name="need" required aria-label="What do you need help with?">
+        <option value="" disabled selected>What do you need help with?</option><option>Emails</option><option>Bookings</option><option>Both</option><option>More</option>
+      </select>
+      <textarea class="field" name="about" rows="4" placeholder="Tell us briefly about your business" aria-label="About your business"></textarea>
+      <button class="btn btn-p w-full" type="submit">Get My Free Quote</button>
+      <p class="text-xs text-center text-slate-500">Free • No obligation • No fine print</p>
+    </form>
+    <div id="thanks" class="hidden mt-10 card p-8 text-white" role="status">
+      <div class="text-4xl">✅</div><p class="mt-3 text-lg font-semibold">We’ve received your details — check your inbox, we’ll be in touch within 24 hours.</p>
+    </div>
+    <p class="mt-8 text-sm">Or email us directly at <a class="font-bold text-accent underline" href="mailto:Auviquestudios@proton.me">Auviquestudios@proton.me</a></p>
+  </div>
+</section>
+
+<!-- SECTION 9: FOOTER -->
+<footer class="py-12 px-5">
+  <div class="max-w-6xl mx-auto grid sm:grid-cols-3 gap-8 text-sm">
+    <div><div class="text-xl font-extrabold tracking-[.22em] text-white">AUVIQUE</div><p class="mt-2">Your Business, Elevated.</p></div>
+    <div class="flex flex-wrap sm:flex-col gap-x-6 gap-y-1"><a href="#services" class="hover:text-white">Services</a><a href="#pricing" class="hover:text-white">Pricing</a><a href="#how" class="hover:text-white">How It Works</a><a href="#quote" class="hover:text-white">Get Quote</a></div>
+    <div><a class="text-accent underline" href="mailto:Auviquestudios@proton.me">Auviquestudios@proton.me</a></div>
+  </div>
+  <p class="max-w-6xl mx-auto mt-10 pt-6 border-t border-line text-xs text-slate-500">© <span id="yr">2026</span> Auvique Studios. All rights reserved.</p>
+</footer>
+
+<!-- SECTION 8: CHATBOT -->
+<button id="chatBtn" class="fixed bottom-5 right-5 z-50 w-14 h-14 rounded-full text-2xl shadow-xl hover:scale-110 transition" style="background:linear-gradient(135deg,#4cc9f0,#6a8dff)" aria-label="Open chat">💬</button>
+<div id="chat" class="hidden fixed bottom-24 right-5 z-50 w-[calc(100vw-2.5rem)] max-w-sm card flex-col overflow-hidden shadow-2xl" style="height:min(30rem,70vh)">
+  <div class="px-4 py-3 bg-[#14203b] text-white font-bold flex justify-between">Auvique Assistant <button id="chatX" aria-label="Close chat">✕</button></div>
+  <div id="msgs" class="flex-1 overflow-y-auto p-4 space-y-3 text-sm"></div>
+  <div id="opts" class="p-3 border-t border-line flex flex-wrap gap-2"></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+/* ===== SETTINGS ===== */
+const EMAIL = "Auviquestudios@proton.me";
+const FORM_ENDPOINT = ""; // optional: paste your Formspree URL, e.g. "https://formspree.io/f/xxxxxxx"
+const MONTHLY = { starter: "£XX", growth: "£XX", enterprise: "£XX" }; // <- set monthly prices here
+const CHAT_ANSWERS = { // <- edit chatbot replies here
+  "What services do you offer?": "We build custom AI agents that handle your emails, bookings and admin — tailored to your business and connected to the tools you already use.",
+  "How long does setup take?": "It depends on what you need, so we confirm a clear timeline in your free quote.",
+  "What’s the process?": "Three steps: a free discovery call, we build your AI agent, then you launch with ongoing support included.",
+  "I’d like a quote": "Great choice — it’s free with no obligation. <a class='underline text-accent' href='#quote'>Fill in the quote form</a> and we’ll reply within 24 hours, or email <a class='underline text-accent' href='mailto:" + EMAIL + "'>" + EMAIL + "</a>.",
+  "Can I speak to a human?": "Absolutely — email us at <a class='underline text-accent' href='mailto:" + EMAIL + "'>" + EMAIL + "</a> and we’ll get back to you right away."
+};
+
+/* Monthly prices */
+document.querySelectorAll("[data-m]").forEach(el => el.textContent = MONTHLY[el.dataset.m]);
+document.getElementById("yr").textContent = new Date().getFullYear();
+
+/* Nav: solid on scroll + mobile menu */
+const nav = document.getElementById("nav"), menu = document.getElementById("mobileMenu");
+const onScroll = () => nav.classList.toggle("solid", scrollY > 30); onScroll(); addEventListener("scroll", onScroll, {passive:true});
+document.getElementById("menuBtn").onclick = () => menu.classList.toggle("hidden");
+menu.onclick = e => { if (e.target.tagName === "A") menu.classList.add("hidden"); };
+
+/* Scroll reveal */
+const rev = document.querySelectorAll(".reveal");
+if ("IntersectionObserver" in window) {
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), {threshold:.12});
+  rev.forEach(el => io.observe(el));
+} else rev.forEach(el => el.classList.add("in"));
+
+/* Quote form */
+const form = document.getElementById("quoteForm"), thanks = document.getElementById("thanks");
+form.addEventListener("submit", e => {
+  e.preventDefault();
+  const d = Object.fromEntries(new FormData(form));
+  const done = () => { form.classList.add("hidden"); thanks.classList.remove("hidden"); };
+  const mail = () => { location.href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent("Quote request – " + d.business) +
+    "&body=" + encodeURIComponent(Object.entries(d).map(([k,v]) => k + ": " + v).join("\n")); done(); };
+  if (FORM_ENDPOINT) fetch(FORM_ENDPOINT, {method:"POST", headers:{"Content-Type":"application/json", "Accept":"application/json"}, body:JSON.stringify(d)}).then(r => r.ok ? done() : mail()).catch(mail);
+  else mail();
+});
+
+/* Chatbot */
+const chat = document.getElementById("chat"), msgs = document.getElementById("msgs"), opts = document.getElementById("opts");
+function say(html, user) {
+  const b = document.createElement("div");
+  b.className = user ? "ml-auto max-w-[85%] bg-accent/20 text-white rounded-2xl rounded-br-sm px-3 py-2" : "max-w-[90%] bg-[#14203b] text-slate-200 rounded-2xl rounded-bl-sm px-3 py-2";
+  user ? b.textContent = html : b.innerHTML = html; msgs.appendChild(b); msgs.scrollTop = msgs.scrollHeight;
+}
+Object.keys(CHAT_ANSWERS).forEach(q => {
+  const b = document.createElement("button"); b.textContent = q;
+  b.className = "text-xs border border-[#2a3a5e] text-slate-200 rounded-full px-3 py-1.5 hover:border-accent hover:text-white transition";
+  b.onclick = () => { say(q, true); setTimeout(() => say(CHAT_ANSWERS[q]), 350); }; opts.appendChild(b);
+});
+say("👋 Hi there! I’m Auvique’s assistant. Want to know more about how we can help?");
+const toggle = () => { chat.classList.toggle("hidden"); chat.classList.toggle("flex"); };
+document.getElementById("chatBtn").onclick = toggle; document.getElementById("chatX").onclick = toggle;
+
+/* 3D hero shape (Three.js) */
+(function () {
+  if (!window.THREE) return;
+  const c = document.getElementById("hero3d"), r = new THREE.WebGLRenderer({canvas:c, alpha:true, antialias:true});
+  const s = new THREE.Scene(), cam = new THREE.PerspectiveCamera(45, 1, .1, 100), g = new THREE.Group(); let base = 0;
+  cam.position.z = 7; r.setPixelRatio(Math.min(devicePixelRatio, 2));
+  g.add(new THREE.Mesh(new THREE.IcosahedronGeometry(1.7, 1), new THREE.MeshBasicMaterial({color:0x4cc9f0, wireframe:true, transparent:true, opacity:.5})));
+  g.add(new THREE.Mesh(new THREE.OctahedronGeometry(.95), new THREE.MeshBasicMaterial({color:0x6a8dff, wireframe:true, transparent:true, opacity:.8})));
+  s.add(g);
+  function size() { const w = c.clientWidth, h = c.clientHeight; r.setSize(w, h, false); cam.aspect = w / h; cam.updateProjectionMatrix();
+    g.position.x = w > 768 ? 2.8 : 0; base = w > 768 ? 0 : 2.4; g.scale.setScalar(w > 768 ? 1 : .8); }
+  size(); addEventListener("resize", size);
+  const calm = matchMedia("(prefers-reduced-motion:reduce)").matches; let t = 0;
+  (function loop() { if (!calm) t += .008; g.rotation.y = t; g.rotation.x = t * .5; g.children[1].rotation.y = -t * 2;
+    g.position.y = base + Math.sin(t * 3) * .15; r.render(s, cam); requestAnimationFrame(loop); })();
+})();
+</script>
+</body>
+</html>
